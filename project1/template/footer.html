@@ -1,0 +1,52 @@
+{% load static %}
+
+<footer class="bg-dark text-white pt-5 pb-4">
+<div class="container text-md-left">
+<div class="row text-md-left">
+<!-- First Column -->
+<div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+<h5 class="text-uppercase mb-4 font-weight-bold" style="margin-bottom: 0;">
+<img src="{% static 'images/RMC.png' %}" alt="Company Logo" style="width: 150px;">
+</h5>
+<p style="margin: 0; line-height: 1.5; text-align: justify;">A complete office partner</p>
+<p style="margin: 0; line-height: 1.5; text-align: justify;">للخدمات التجارية مؤسسة الرائدة المتميزة</p>
+<div style="margin-top: 10px;">
+<a href="https://www.facebook.com" class="text-green mr-3" style="background-color: white; padding: 8px; border-radius: 3px; display: inline-block;"><i class="fab fa-facebook-f" style="font-size: 1.2em;"></i></a>
+<a href="https://www.twitter.com" class="text-green mr-3" style="background-color: white; padding: 8px; border-radius: 3px; display: inline-block;"><i class="fab fa-twitter" style="font-size: 1.2em;"></i></a>
+<a href="https://www.youtube.com" class="text-green mr-3" style="background-color: white; padding: 8px; border-radius: 3px; display: inline-block;"><i class="fab fa-youtube" style="font-size: 1.2em;"></i></a>
+<a href="https://www.pinterest.com" class="text-green" style="background-color: white; padding: 8px; border-radius: 3px; display: inline-block;"><i class="fab fa-pinterest" style="font-size: 1.2em;"></i></a>
+</div>
+</div>
+
+<!-- Second Column -->
+<div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+<h5 class="text-uppercase mb-4 font-weight-bold">Quick Links</h5>
+<hr class="mb-4">
+<p>
+<a href="{% url 'about' %}" class="text-white" style="text-decoration: none;">About Us</a>
+</p>
+<p>
+<a href="{% url 'services' %}" class="text-white" style="text-decoration: none;">Services</a>
+</p>
+<p>
+<a href="{% url 'contactus' %}" class="text-white" style="text-decoration: none;">Contact Us</a>
+</p>
+</div>
+
+<!-- Third Column -->
+<div class="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
+<h5 class="text-uppercase mb-4 font-weight-bold">Get in Touch</h5>
+<hr class="mb-4">
+<p>
+<i class="fas fa-map-marker-alt mr-3" style="color: green;"></i>Al Ra'idah Al Mutamayyizah Commercial Establishment P.O. Box 23535 - Jeddah 4838
+</p>
+<p>
+<i class="fas fa-envelope mr-3" style="color: green;"></i> <a href="mailto:email@example.com" class="text-white">email@example.com</a>
+</p>
+</div>
+</div>
+</div>
+<div class="text-center mt-3">
+<p>Copyright 2022 | All Rights Reserved</p>
+</div>
+</footer>

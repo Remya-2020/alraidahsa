@@ -1,0 +1,331 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/6f5d0218e0.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<title>Home Page</title>
+<style>
+.slideshow {
+position: relative;
+width: 100%;
+height: 100vh;
+overflow: hidden;
+}
+.slide {
+position: absolute;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+display: flex;
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+.slide.active {
+opacity: 1;
+animation: zoomIn 15s ease-in-out;
+}
+.slide.right-to-left {
+animation: slideInRight 1s ease-in-out forwards;
+}
+.caption {
+color: white;
+text-align: center;
+z-index: 2;
+padding: 20px;
+opacity: 0;
+animation: slideInLeft 1s ease-in-out forwards;
+animation-delay: 1s;
+}
+.caption.zoom-in {
+animation: zoomInText 1s ease-in-out forwards;
+animation-delay: 2s;
+}
+@keyframes zoomIn {
+0% {
+transform: scale(1);
+}
+100% {
+transform: scale(1.2);
+}
+}
+@keyframes slideInRight {
+0% {
+transform: translateX(100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes slideInLeft {
+0% {
+transform: translateX(-100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes zoomInText {
+0% {
+transform: scale(1);
+}
+100% {
+transform: scale(1.2);
+}
+}
+.slide::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+z-index: 1;
+}
+.caption h1 {
+font-size: 3rem;
+margin-bottom: 20px;
+}
+.caption h2 {
+font-size: 2rem;
+color: skyblue;
+margin-bottom: 10px;
+}
+.caption .btn {
+font-size: 1.2rem;
+padding: 10px 20px;
+}
+.about-us {
+padding: 50px 0;
+text-align: center;
+}
+</style>
+</head>
+<body>
+{% include 'nav.html' %}
+
+<div class="slideshow">
+<div class="slide active" style="background-image: url('{% static "images/aboutus.jpg" %}');">
+<div class="caption" style="opacity: 1; animation: none;">
+<h2>Al Raidah Al Mutammaiah Trading Establishment</h2>
+<h1>We handle all types of trading work</h1>
+<a href="#" class="btn btn-primary">Get Started</a>
+</div>
+</div>
+<div class="slide right-to-left" style="background-image: url('{% static "images/img1.jpg" %}');">
+<div class="caption zoom-in">
+<h2>Al Raidah Al Mutammaiah Trading Establishment</h2>
+<h1>We handle all types of trading work</h1>
+<a href="#" class="btn btn-primary">Get Started</a>
+</div>
+</div>
+</div>
+
+<div class="about-us">
+<h2>About Us</h2>
+<p>Here you can add information about your company.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+let slides = document.querySelectorAll('.slide');
+let captions = document.querySelectorAll('.caption');
+let currentSlide = 0;
+
+function showNextSlide() {
+slides[currentSlide].classList.remove('active');
+slides[currentSlide].classList.remove('right-to-left');
+captions[currentSlide].classList.remove('zoom-in');
+currentSlide = (currentSlide + 1) % slides.length;
+slides[currentSlide].classList.add('active');
+if (currentSlide === 1) {
+slides[currentSlide].classList.add('right-to-left');
+captions[currentSlide].classList.add('zoom-in');
+}
+}
+
+setInterval(showNextSlide, 6000); // Change slide every 6 seconds
+</script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/6f5d0218e0.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+<title>Home Page</title>
+<style>
+.slideshow {
+position: relative;
+width: 100%;
+height: 100vh;
+overflow: hidden;
+}
+.slide {
+position: absolute;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+display: flex;
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 1s ease-in-out;
+}
+.slide.active {
+opacity: 1;
+animation: zoomIn 10s ease-in-out;
+}
+.slide.right-to-left {
+animation: slideInRight 1s ease-in-out forwards;
+}
+.caption {
+color: white;
+text-align: center;
+z-index: 2;
+padding: 20px;
+opacity: 1; /* Make captions visible by default */
+transition: opacity 1s ease-in-out;
+}
+.caption.zoom-in {
+animation: zoomInText 1s ease-in-out forwards;
+animation-delay: 2s;
+}
+@keyframes zoomIn {
+0% {
+transform: scale(1);
+}
+100% {
+transform: scale(1.2);
+}
+}
+@keyframes slideInRight {
+0% {
+transform: translateX(100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes slideInLeft {
+0% {
+transform: translateX(-100%);
+opacity: 0;
+}
+100% {
+transform: translateX(0);
+opacity: 1;
+}
+}
+@keyframes zoomInText {
+0% {
+transform: scale(1);
+}
+100% {
+transform: scale(1.2);
+}
+}
+.slide::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+z-index: 1;
+}
+.caption h1 {
+font-size: 3rem;
+margin-bottom: 20px;
+}
+.caption h2 {
+font-size: 2rem;
+color: skyblue;
+margin-bottom: 10px;
+}
+.caption .btn {
+font-size: 1.2rem;
+padding: 10px 20px;
+}
+.about-us {
+padding: 50px 0;
+text-align: center;
+}
+</style>
+</head>
+<body>
+{% include 'nav.html' %}
+
+<div class="slideshow">
+<div class="slide active" style="background-image: url('{% static "images/aboutus.jpg" %}');">
+<div class="caption zoom-in">
+<h2>Al Raidah Al Mutammaiah Trading Establishment</h2>
+<h1>We handle all types of trading work</h1>
+<a href="#" class="btn btn-primary">Get Started</a>
+</div>
+</div>
+<div class="slide" style="background-image: url('{% static "images/img1.jpg" %}');">
+<div class="caption">
+<h2>Al Raidah Al Mutammaiah Trading Establishment</h2>
+<h1>We handle all types of trading work</h1>
+<a href="#" class="btn btn-primary">Get Started</a>
+</div>
+</div>
+</div>
+
+<div class="about-us">
+<h2>About Us</h2>
+<p>Here you can add information about your company.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+let slides = document.querySelectorAll('.slide');
+let captions = document.querySelectorAll('.caption');
+let currentSlide = 0;
+
+function showNextSlide() {
+slides[currentSlide].classList.remove('active');
+slides[currentSlide].classList.remove('right-to-left');
+captions[currentSlide].classList.remove('zoom-in');
+currentSlide = (currentSlide + 1) % slides.length;
+slides[currentSlide].classList.add('active');
+if (currentSlide === 1) {
+slides[currentSlide].classList.add('right-to-left');
+captions[currentSlide].classList.add('zoom-in');
+}
+}
+
+setInterval(showNextSlide, 10000); // Change slide every 10 seconds
+</script>
+</body>
+</html>
